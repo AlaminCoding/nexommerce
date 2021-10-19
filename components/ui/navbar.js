@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImSearch } from "react-icons/im";
+import styles from "styles/Navbar.module.scss";
 import {
   MdAccountCircle,
   MdShoppingCart,
@@ -19,18 +20,29 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <h2 className="logo">
+    <nav className={styles.main_nav}>
+      <h2 className={styles.logo}>
         <Link href="/">
           <a>NEXOMMERCE</a>
         </Link>
       </h2>
-      <div className={`search-bar${openSearch ? " open-search-bar" : ""}`}>
+      <div
+        className={`${styles.search_bar} ${
+          openSearch ? styles.open_search_bar : ""
+        }`}
+      >
         <input type="text" placeholder="Search your product" />
-        <ImSearch className="search-icon" />
-        <AiOutlineClose className="close-icon" onClick={closeSearchBar} />
+        <ImSearch className={styles.search_icon} />
+        <AiOutlineClose
+          className={styles.close_icon}
+          onClick={closeSearchBar}
+        />
       </div>
-      <ul className={`main-menu${openMenu ? " open-main-menu" : ""}`}>
+      <ul
+        className={`${styles.main_menu} ${
+          openMenu ? styles.open_main_menu : ""
+        }`}
+      >
         <li>
           <Link href="/shop">
             <a>Shop</a>
@@ -52,7 +64,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <ul className="menu-icons">
+      <ul className={styles.menu_icons}>
         <li>
           <Link href="/account">
             <a>
@@ -74,13 +86,13 @@ const Navbar = () => {
             </a>
           </Link>
         </li>
-        <li className="search-menu-icon">
+        <li className={styles.search_menu_icon}>
           <a onClick={openSearchBar}>
             <MdSearch />
           </a>
         </li>
       </ul>
-      <div className="toggle-menu">
+      <div className={styles.toggle_menu}>
         {openMenu ? (
           <AiOutlineClose onClick={() => setOpenMenu(false)} />
         ) : (
