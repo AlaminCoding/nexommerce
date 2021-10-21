@@ -11,6 +11,7 @@ import {
 } from "react-icons/ai";
 import { SiYoutubetv } from "react-icons/si";
 import { useEffect, useState } from "react";
+import styles from "styles/Topnav.module.scss";
 const Topnav = () => {
   const [country, setCountry] = useState("");
   const [openNav, setOpenNav] = useState(false);
@@ -37,8 +38,14 @@ const Topnav = () => {
       .then((data) => setCountry(data.ip.country));
   }, []);
   return (
-    <div className="top-nav">
-      <ul className={openNav ? "top-social top-social-open" : "top-social"}>
+    <div className={styles.top_nav}>
+      <ul
+        className={
+          openNav
+            ? `${styles.top_social} ${styles.top_social_open}`
+            : `${styles.top_social}`
+        }
+      >
         <li>
           <a href="#">
             <AiFillFacebook />
@@ -60,8 +67,8 @@ const Topnav = () => {
           </a>
         </li>
       </ul>
-      <div className="top-social-toggle">{navToggle()}</div>
-      <div className="top-nav-right">
+      <div className={styles.top_social_toggle}>{navToggle()}</div>
+      <div className={styles.top_nav_right}>
         <p>
           <FaPhoneSquareAlt />
           0123-456789

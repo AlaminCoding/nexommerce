@@ -3,6 +3,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 import bannerData from "data/bannerData";
+import styles from "styles/slider.module.scss";
 
 const Slider = () => {
   return (
@@ -16,7 +17,7 @@ const Slider = () => {
         {bannerData.map((element) => (
           <SwiperSlide key={element.id}>
             <div
-              className="swiper-box"
+              className={styles.swiper_box}
               style={{ backgroundImage: `url(${element.img.src})` }}
             ></div>
           </SwiperSlide>

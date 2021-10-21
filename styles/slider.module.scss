@@ -1,0 +1,13 @@
+// Swiper Box Element
+.swiper_box {
+  height: 600px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+@media screen and (max-width: 700px) {
+  .swiper_box {
+    height: 78vh;
+  }
+}

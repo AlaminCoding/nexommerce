@@ -3,13 +3,14 @@ import Slider from "components/block/slider";
 import { useSelector, useDispatch } from "react-redux";
 import { openCategory } from "store/categoryHandle";
 import { AiOutlineMenuFold } from "react-icons/ai";
+import styles from "styles/banner.module.scss";
 const Banner = () => {
   const openList = useSelector((state) => state.openCategory.value);
   const dispatch = useDispatch();
   return (
-    <section className="banner">
+    <section className={styles.banner}>
       <AiOutlineMenuFold
-        className="toggle-category"
+        className={styles.toggle_category}
         onClick={() => dispatch(openCategory())}
       />
       <Category />

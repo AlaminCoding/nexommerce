@@ -1,0 +1,103 @@
+// Category
+$blue: #1a8b97;
+$purple: #6d07a7;
+.main_category {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  float: left;
+  background-color: rgba(26, 139, 151, 0.1);
+  border-radius: 10px;
+  margin-right: 20px;
+  padding: 0px 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  .first_list {
+    padding: 10px 25px;
+    margin-top: 10px;
+    background-color: rgba(26, 139, 151, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+  }
+  .first_list:hover {
+    background-color: rgba(26, 139, 151, 0.4);
+  }
+  .common_category {
+    position: absolute;
+    background-color: $blue;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    border-radius: 5px;
+    padding: 0px 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    .common_list {
+      padding: 10px 25px;
+      margin-top: 10px;
+      background-color: rgb(255, 255, 255, 0.8);
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.5s;
+    }
+    .common_list:hover {
+      background-color: white;
+    }
+  }
+  .mid_category {
+    right: -310px;
+  }
+  .last_category {
+    right: -620px;
+  }
+  .phone_category {
+    justify-content: space-between;
+    font-size: 30px;
+    padding: 10px 0px;
+    color: white;
+    display: none;
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 970px) {
+  .main_category {
+    .mid_category {
+      right: -150px;
+    }
+    .last_category {
+      right: -300px;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .main_category {
+    position: absolute;
+    left: -103%;
+    z-index: 2;
+    background-color: white;
+    width: 100%;
+    transition: 0.5s;
+    .mid_category {
+      right: 0;
+      width: 100%;
+    }
+    .last_category {
+      right: 0;
+      width: 100%;
+    }
+    .phone_category {
+      display: flex;
+    }
+  }
+  .main_category_open {
+    left: 0;
+  }
+}
