@@ -3,7 +3,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 import bannerData from "data/bannerData";
-import styles from "styles/slider.module.scss";
+import styled from "styled-components";
 
 const Slider = () => {
   return (
@@ -16,10 +16,7 @@ const Slider = () => {
       >
         {bannerData.map((element) => (
           <SwiperSlide key={element.id}>
-            <div
-              className={styles.swiper_box}
-              style={{ backgroundImage: `url(${element.img.src})` }}
-            ></div>
+            <SwiperBox image={element.img.src}></SwiperBox>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -28,3 +25,15 @@ const Slider = () => {
 };
 
 export default Slider;
+
+const SwiperBox = styled.div`
+  height: 600px;
+  width: 100%;
+  background-image: url(${(props) => props.image});
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  @media screen and (max-width: 700px) {
+    height: 78vh;
+  }
+`;
