@@ -2,7 +2,8 @@ import { FaMoon } from "react-icons/fa";
 import { RiSunFill } from "react-icons/ri";
 import { useState } from "react";
 import styled from "styled-components";
-
+import { useSelector, useDispatch } from "react-redux";
+import { activeLight, activeDark } from "store/themeHandle";
 // Styles
 const ThemeButton = styled.button`
   background-color: white;
@@ -18,6 +19,7 @@ const ThemeButton = styled.button`
   position: fixed;
   top: 50%;
   left: 20px;
+  z-index: 1;
   transform: translateY(-50%);
   transition: 0.5s;
   &:hover {
@@ -26,17 +28,19 @@ const ThemeButton = styled.button`
 `;
 
 const Theme = () => {
-  const [darkActive, setDarkActive] = useState(false);
+  const theme = useSelector((state) => state.activeTheme.value);
+  const dispatch = useDispatch();
+
   const themeChange = () => {
-    if (darkActive === false) {
-      setDarkActive(true);
+    if (theme === "light") {
+      dispatch(activeDark());
     } else {
-      setDarkActive(false);
+      dispatch(activeLight());
     }
   };
   return (
     <ThemeButton onClick={themeChange}>
-      {darkActive ? <RiSunFill /> : <FaMoon />}
+      {theme === "dark" ? <RiSunFill /> : <FaMoon />}
     </ThemeButton>
   );
 };

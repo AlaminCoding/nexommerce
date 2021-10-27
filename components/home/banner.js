@@ -37,9 +37,9 @@ const ToggleCategory = styled.div`
   top: 20px;
   left: 20px;
   z-index: 2;
-
   cursor: pointer;
   display: none;
+  color: black;
   svg {
     background-color: white;
     font-size: 30px;

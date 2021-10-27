@@ -101,7 +101,7 @@ export default Navbar;
 
 // Styles
 const colors = {
-  purple: "#6d07a7",
+  purple: "#5DADE2",
   blue: "#1a8b97",
 };
 
@@ -110,13 +110,17 @@ const MainNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  @media screen and (max-width: 975px) {
+    height: 70px;
+  }
 `;
 
 const Logo = styled.h2`
   font-family: "Acme", sans-serif;
   margin: 0;
   a {
-    color: ${colors.blue};
+    color: ${colors.purple};
     text-decoration: none;
     font-weight: 600;
     @media screen and (max-width: 975px) {
@@ -132,9 +136,9 @@ const SearchBar = styled.div`
   input {
     width: 100%;
     height: 100%;
-    border: 1px solid ${colors.purple};
+    border: 1px solid ${colors.blue};
     border-radius: 5px;
-    background-color: rgba(109, 7, 167, 0.1);
+    background-color: white;
     font-family: "Kurale", serif;
     font-size: 18px;
     padding: 0px 20px;
@@ -156,12 +160,13 @@ const SearchBar = styled.div`
     display: ${(props) => (props.openSearch ? "block" : "none")};
     position: absolute;
     background-color: white;
-    top: 40px;
+    top: 50%;
     left: 0;
     width: 100%;
-    height: 100px;
-    padding: 20px;
-    padding-right: 60px;
+    height: 85%;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    padding: 10px 60px 10px 20px;
   }
 `;
 
@@ -190,7 +195,6 @@ const MainMenu = styled.ul`
     margin: 0px 10px;
     a {
       text-transform: uppercase;
-      color: black;
       font-weight: 600;
       text-decoration: none;
       transition: 0.5s;
@@ -201,9 +205,9 @@ const MainMenu = styled.ul`
   }
   @media screen and (max-width: 650px) {
     position: fixed;
-    top: 140px;
+    top: 110px;
     right: ${(props) => (props.openMainMenu ? "0%" : "-100%")};
-    background-color: white;
+    background-color: var(--menubox-color);
     height: 86vh;
     width: 100%;
     flex-direction: column;
@@ -223,7 +227,6 @@ const MenuIcons = styled.ul`
   li {
     margin-left: 15px;
     a {
-      color: black;
       font-size: 26px;
       transition: 0.5s;
     }
@@ -244,7 +247,6 @@ const SearchMenuIcon = styled.li`
 const ToggleMenu = styled.div`
   display: none;
   svg {
-    color: black;
     font-size: 26px;
     cursor: pointer;
   }
