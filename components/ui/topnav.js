@@ -22,7 +22,7 @@ const TopnavStyle = styled.div`
   width: 100%;
   height: 40px;
   padding: 0px 20px;
-  background-color: rgba(26, 139, 151, 0.2);
+  background-color: var(--box-color);
   border-radius: 0px 0px 5px 5px;
   position: relative;
   p {
@@ -41,7 +41,7 @@ const TopSocial = styled.ul`
   li {
     margin-right: 10px;
     a {
-      color: black;
+      color: var(--text-color);
       text-decoration: none;
       font-size: 25px;
       display: flex;
@@ -78,7 +78,6 @@ const TopSocialToggle = styled.div`
   display: none;
   cursor: pointer;
   svg {
-    color: black;
     font-size: 25px;
   }
   @media screen and (max-width: 470px) {

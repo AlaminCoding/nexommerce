@@ -144,11 +144,11 @@ const MainCategory = styled.ul`
   width: 300px;
   height: 100%;
   float: left;
-  background-color: rgba(26, 139, 151, 0.1);
+  background-color: var(--box-color);
   margin-right: 20px;
   padding: 0px 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 700px) {
+    border-top: 1px solid #1a8b97;
     position: absolute;
     left: ${(props) => (props.openList ? 0 : "-103%")};
     z-index: 2;
@@ -212,6 +212,7 @@ const CommonList = styled.li`
   padding: 10px 25px;
   margin-top: 10px;
   background-color: rgb(255, 255, 255, 0.8);
+  color: black;
   border-radius: 5px;
   cursor: pointer;
   display: flex;

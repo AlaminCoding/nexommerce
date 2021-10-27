@@ -5,6 +5,7 @@ import Layout from "components/layout";
 import { store } from "store/store";
 import { Provider } from "react-redux";
 import Theme from "components/ui/themeButton.js";
+
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
