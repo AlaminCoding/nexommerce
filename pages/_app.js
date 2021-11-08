@@ -4,7 +4,7 @@ import "styles/globals.scss";
 import Layout from "components/layout";
 import { store } from "store/store";
 import { Provider } from "react-redux";
-import Theme from "components/ui/themeButton.js";
+import Theme from "components/ui/themeButton";
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -27,8 +27,10 @@ const BannerStyle = styled.section`
   height: 600px;
   width: 100%;
   position: relative;
+  margin-bottom: 100px;
   @media screen and (max-width: 700px) {
     height: 78vh;
+    margin-bottom: 50px;
   }
 `;
 
