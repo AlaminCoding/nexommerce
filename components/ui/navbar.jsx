@@ -7,20 +7,38 @@ import {
   MdSearch,
 } from "react-icons/md";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { useSelector } from "react-redux";
 // Render
 const Navbar = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [count, setCount] = useState(0);
+  const products = useSelector((state) => state.products.value);
+
   const openSearchBar = () => {
     setOpenSearch(true);
   };
   const closeSearchBar = () => {
     setOpenSearch(false);
   };
+  const openNav = () => {
+    setOpenMenu(true);
+    document.body.style.overflow = "hidden";
+  };
+  const closeNav = () => {
+    setOpenMenu(false);
+    document.body.style.overflow = "visible";
+  };
 
+  useEffect(() => {
+    let number = 0;
+    for (let i = 0; i < products.length; i++) {
+      number = number + products[i].count;
+    }
+    setCount(number);
+  });
   return (
     <MainNav>
       <Logo>
@@ -71,6 +89,7 @@ const Navbar = () => {
           <Link href="/cart">
             <a>
               <MdShoppingCart />
+              {count > 0 ? <span>{count}</span> : null}
             </a>
           </Link>
         </li>
@@ -89,9 +108,9 @@ const Navbar = () => {
       </MenuIcons>
       <ToggleMenu>
         {openMenu ? (
-          <AiOutlineClose onClick={() => setOpenMenu(false)} />
+          <AiOutlineClose onClick={() => closeNav()} />
         ) : (
-          <AiOutlineMenu onClick={() => setOpenMenu(true)} />
+          <AiOutlineMenu onClick={() => openNav()} />
         )}
       </ToggleMenu>
     </MainNav>
@@ -141,7 +160,7 @@ const SearchBar = styled.div`
     background-color: white;
     font-family: "Kurale", serif;
     font-size: 18px;
-    padding: 0px 20px;
+    padding: 0px 40px 0px 20px;
   }
   input:focus {
     outline: none;
@@ -208,7 +227,7 @@ const MainMenu = styled.ul`
     top: 110px;
     right: ${(props) => (props.openMainMenu ? "0%" : "-100%")};
     background-color: var(--menubox-color);
-    height: 86vh;
+    height: 88vh;
     width: 100%;
     flex-direction: column;
     padding-top: 25px;
@@ -229,6 +248,22 @@ const MenuIcons = styled.ul`
     a {
       font-size: 26px;
       transition: 0.5s;
+      position: relative;
+      span {
+        position: absolute;
+        top: 21px;
+        left: 11px;
+        height: 20px;
+        width: 20px;
+        background-color: var(--base-color);
+        font-size: 14px;
+        color: white;
+        border-radius: 50%;
+        font-family: "Kurale", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     a:hover {
       color: ${colors.purple};

@@ -29,9 +29,13 @@ const TopnavStyle = styled.div`
     display: flex;
     align-items: center;
     margin-left: 20px;
+    color: var(--normal-color);
     svg {
       margin-right: 5px;
       font-size: 18px;
+    }
+    @media screen and (max-width: 400px) {
+      margin-left: 5px;
     }
   }
 `;
@@ -41,7 +45,7 @@ const TopSocial = styled.ul`
   li {
     margin-right: 10px;
     a {
-      color: var(--text-color);
+      color: var(--normal-color);
       text-decoration: none;
       font-size: 25px;
       display: flex;
@@ -56,7 +60,7 @@ const TopSocial = styled.ul`
     width: 81%;
     background-color: rgba(26, 139, 151);
     border-radius: 0px 0px 5px 5px;
-    top: -40px;
+    /* top: -40px; */
     top: ${(props) => (props.openNav ? "0" : "-40px")};
     right: 0;
     transition: 0.5s;
@@ -79,6 +83,7 @@ const TopSocialToggle = styled.div`
   cursor: pointer;
   svg {
     font-size: 25px;
+    color: var(--normal-color);
   }
   @media screen and (max-width: 470px) {
     display: block;
@@ -106,11 +111,11 @@ const Topnav = () => {
       <FaShareAltSquare onClick={() => openTopNav()} />
     );
   };
-  useEffect(() => {
-    fetch("https://ip.nf/me.json")
-      .then((response) => response.json())
-      .then((data) => setCountry(data.ip.country));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://ip.nf/me.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setCountry(data.ip.country));
+  // }, []);
   return (
     <TopnavStyle>
       <TopSocial openNav={openNav}>
@@ -143,7 +148,7 @@ const Topnav = () => {
         </p>
         <p>
           <MdLocationOn />
-          {country}
+          Bangladesh
         </p>
       </TopnavRight>
     </TopnavStyle>

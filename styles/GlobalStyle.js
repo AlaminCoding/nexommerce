@@ -4,13 +4,16 @@ export const GlobalStyle = createGlobalStyle`
     :root{
       --box-color: ${(props) => props.theme.box};
       --text-color: ${(props) => props.theme.text};
-      --menubox-color: ${(props) => props.theme.menuBox}
+      --menubox-color: ${(props) => props.theme.menuBox};
+      --normal-color: #3a3a3a;
+      --base-color: #1a8b97;
     }
     body{
         background-color: ${(props) => props.theme.body};
         color: ${(props) => props.theme.text};
         transition: all 0.3s;
     }
+
     h2,p {
       margin: 0;
       padding: 0;
@@ -22,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     a,p,li {
       font-family: "Kurale", serif;
+      letter-spacing: 1px;
     }
     a{
       color: var(---text-color);
@@ -30,14 +34,14 @@ export const GlobalStyle = createGlobalStyle`
 
 export const LightTheme = {
   body: "white",
-  text: "black",
+  text: "#3a3a3a",
   box: "rgba(26, 139, 151, 0.2)",
   menuBox: "white",
 };
 
 export const DarkTheme = {
-  body: "black",
+  body: "#3A3A3A",
   text: "white",
-  box: "#5DADE2",
-  menuBox: "black",
+  box: "#B2F7EF",
+  menuBox: "#3A3A3A",
 };

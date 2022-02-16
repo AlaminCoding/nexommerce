@@ -177,7 +177,7 @@ const FirstList = styled.li`
 
 const CommonCategory = styled.ul`
   position: absolute;
-  background-color: #1a8b97;
+  background-color: #b2f7ef;
   top: 0;
   right: ${(props) => {
     switch (props.categoryType) {
@@ -190,7 +190,7 @@ const CommonCategory = styled.ul`
   width: 300px;
   height: 100%;
   padding: 0px 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
   z-index: 2;
   @media screen and (max-width: 970px) {
     right: ${(props) => {
@@ -232,6 +232,7 @@ const PhoneCategory = styled.li`
   display: none;
   svg {
     cursor: pointer;
+    color: var(--normal-color);
   }
   @media screen and (max-width: 700px) {
     display: flex;
