@@ -1,4 +1,4 @@
-import Navbar from "components/ui/navbar.js";
+import Navbar from "components/ui/navbar";
 import Topnav from "components/ui/topnav";
 import Head from "next/head";
 import styled from "styled-components";
